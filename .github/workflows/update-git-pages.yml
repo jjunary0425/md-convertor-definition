@@ -31,6 +31,9 @@ jobs:
           
       - name: install cli
         run: npm install -g redoc-cli
+      
+       - name: make docs folder
+        run: mkdir docs
 
       - name: bundle
         run: redoc-cli bundle ./openapi/openapi.yaml -o ./docs/index.html
