@@ -11,8 +11,10 @@ kanjiSummary:
       $ref: '../schemas/usage.yaml' 
 kanji:
   type: object
+  required:
+  - character
   properties:
-    kanji:
+    character:
       type: string
     yomi:
       type: string

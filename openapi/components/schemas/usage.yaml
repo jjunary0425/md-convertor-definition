@@ -1,4 +1,6 @@
 type: object
+required:
+- header
 properties:
   header:
     type: string
