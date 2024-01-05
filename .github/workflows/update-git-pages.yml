@@ -31,7 +31,7 @@ jobs:
       - name: install cli
         run: npm install -g redoc-cli
       
-       - name: make docs folder
+      - name: make docs folder
         run: mkdir docs
 
       - name: bundle
