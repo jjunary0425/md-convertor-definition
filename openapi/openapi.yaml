@@ -1,0 +1,25 @@
+openapi: "3.0.3"
+info:
+  version: 2024.1.5
+  title: markdown convertor
+  description: Restful API for markdown convertor
+servers:
+  - url: http://localhost:8080/api
+    description: markdown convertor Service
+tags:
+  - name: kanji
+    description: Making Study File for Kanji
+paths:
+  /kanji:
+    $ref: "./paths/kanji.yaml#/kanji"
+components:
+  schemas:
+    kanji:
+      $ref: "./components/schemas/kanji.yaml#/kanji"
+    kanjiSummary:
+      $ref: "./components/schemas/kanji.yaml#/kanjiSummary"
+    usage:
+      $ref: "./components/schemas/usage.yaml"
+    markdownResult :
+      $ref: "./components/schemas/markdownResult.yaml"
+    

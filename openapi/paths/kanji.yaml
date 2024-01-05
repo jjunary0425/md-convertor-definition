@@ -1,0 +1,24 @@
+kanji :
+  post :
+    summary :  "Create a new kanji markdown"
+    operationId :  "postKanjiMarkdown"
+    requestBody :
+      description: Optional description in *Markdown*
+      required: true
+      content:
+        application/json:
+          schema:
+           $ref: '../components/schemas/kanji.yaml#/kanjiSummary'
+          examples:
+            kanjiSummary:
+              $ref: '../components/examples/kanji.yaml'
+    responses :
+      '200' :
+        description :  "OK"
+        content :
+          text/plain :
+            schema :
+              type :  string
+              example :  "## 漢字\n\n### かんじ\n\n#### 한자\n\n한자는 중국에서 유래한 문자이다.\n\n|漢字|ふりがな|뜻|\n|---|---|---|\n|漢字1|かんじ1|한자1|\n|漢字2|かんじ2|한자2|\n\n"
+            
+    

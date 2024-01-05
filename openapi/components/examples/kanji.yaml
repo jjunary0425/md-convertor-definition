@@ -1,0 +1,8 @@
+value:
+  kanji: 漢
+  yomi: かんじ
+  hun: 한자
+  description :  한자는 중국에서 유래한 문자이다.
+  usage : 
+    header : 漢字,ふりがな,뜻
+    contents : ["漢字1,かんじ1,한자1", "漢字2,かんじ2,한자2"]
