@@ -1,11 +1,10 @@
-kanjiSummary:
-  type: object
-  required:
-  - kanji
-  properties:
-    kanji:
-      $ref: '../schemas/kanji.yaml'
-    description:
-      type: string
-    usage:
-      $ref: '../schemas/usage.yaml' 
+type: object
+required:
+- kanji
+properties:
+  kanji:
+    $ref: '../schemas/kanji.yaml'
+  description:
+    type: string
+  usage:
+    $ref: '../schemas/usage.yaml' 
