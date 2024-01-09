@@ -4,8 +4,8 @@ kanjiSummary:
   - kanji
   properties:
     kanji:
-      $ref: './kanji.yaml'
+      $ref: '../schemas/kanji.yaml'
     description:
       type: string
     usage:
-      $ref: './usage.yaml' 
+      $ref: '../schemas/usage.yaml' 
