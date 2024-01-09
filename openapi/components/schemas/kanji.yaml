@@ -1,22 +1,10 @@
-kanjiSummary:
-  type: object
-  required:
-  - kanji
-  properties:
-    kanji:
-      $ref: '#/kanji'
-    description:
-      type: string
-    usage:
-      $ref: '../schemas/usage.yaml' 
-kanji:
-  type: object
-  required:
-  - character
-  properties:
-    character:
-      type: string
-    yomi:
-      type: string
-    hun:
-      type: string
+type: object
+required:
+- character
+properties:
+  character:
+    type: string
+  yomi:
+    type: string
+  hun:
+    type: string

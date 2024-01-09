@@ -8,7 +8,7 @@ kanji :
       content:
         application/json:
           schema:
-           $ref: '../components/schemas/kanji.yaml#/kanjiSummary'
+           $ref: '../components/schemas/kanjiSummary.yaml'
           examples:
             kanjiSummary:
               $ref: '../components/examples/kanji.yaml'

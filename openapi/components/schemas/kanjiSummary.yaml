@@ -1,0 +1,11 @@
+kanjiSummary:
+  type: object
+  required:
+  - kanji
+  properties:
+    kanji:
+      $ref: './kanji.yaml'
+    description:
+      type: string
+    usage:
+      $ref: './usage.yaml' 

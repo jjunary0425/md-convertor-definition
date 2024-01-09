@@ -15,11 +15,9 @@ paths:
 components:
   schemas:
     kanji:
-      $ref: "./components/schemas/kanji.yaml#/kanji"
+      $ref: "./components/schemas/kanji.yaml"
     kanjiSummary:
-      $ref: "./components/schemas/kanji.yaml#/kanjiSummary"
+      $ref: "./components/schemas/kanjiSummary.yaml"
     usage:
       $ref: "./components/schemas/usage.yaml"
-    markdownResult :
-      $ref: "./components/schemas/markdownResult.yaml"
     
