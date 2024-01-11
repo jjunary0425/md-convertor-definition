@@ -67,11 +67,10 @@ jobs:
           update openapi.json
           
           created from ${{ env.RUN_URL }}
-          latest commit ${{ env.HEAD_COMMIT }}
+          latest commit: ${{ env.HEAD_COMMIT }}
           )
-
           DESCRIPTION="${DESCRIPTION//$'\n'/'%0A'}"
-          echo "::set-output name=description::$DESCRIPTION"
+          echo "::set-output name=content::$DESCRIPTION"
       - name: copy openpai_json
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
