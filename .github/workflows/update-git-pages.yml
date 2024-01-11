@@ -48,7 +48,7 @@ jobs:
         run: mkdir output
 
       - name: bundle
-        run: swagger-cli bundle -o output/openapi.output.json openapi/openapi.yaml
+        run: swagger-cli bundle -o output/openapi.json openapi/openapi.yaml
 
       - name: Generate token
         id: generate_token
@@ -63,7 +63,7 @@ jobs:
           HEAD_COMMIT: "${{ github.event.repository.html_url }}/commit/${{ github.event.after || github.sha }}"
         id: commit_message
         run: |
-          echo "content= update openapi.json \ncreated from ${{ env.RUN_URL }} \nlatest commit: ${{ env.HEAD_COMMIT }}" >> $GITHUB_OUTPUT
+          echo "content= update openapi.json created from ${{ env.RUN_URL }} latest commit: ${{ env.HEAD_COMMIT }}" >> $GITHUB_OUTPUT
       - name: check commit message
         run: echo "${{ steps.commit_message.outputs.content }}"
       - name: copy openpai_json
@@ -74,6 +74,7 @@ jobs:
           source_file: output/openapi.output.json
           destination_repo: jjunary0425/md-converter-openapi-gen
           destination_branch: main
+          destination_folder: 'output'
           commit_message: '${{ steps.commit_message.outputs.content }}'
           user_email: 'jjunary0425@gmail.com'
           user_name: 'rimapa'
