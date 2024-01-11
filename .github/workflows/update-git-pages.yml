@@ -64,7 +64,7 @@ jobs:
         id: commit_message
         run: |
           DESCRIPTION="update openapi.json\ncreated from ${{ env.RUN_URL }} \nlatest commit: ${{ env.HEAD_COMMIT }}"
-          echo "::set-output name=content::$DESCRIPTION"
+          echo "content=$ {{ DESCRIPTION }}" >> $GITHUB_OUTPUT
       - name: copy openpai_json
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
@@ -73,7 +73,6 @@ jobs:
           source_file: output/openapi.output.json
           destination_repo: jjunary0425/md-converter-openapi-gen
           destination_branch: main
-          destination_file: openapi.json
           commit_message: ${{ steps.commit_message.outputs.description }}
           user_email: 'jjunary0425@gmail.com'
           user_name: 'rimapa'
