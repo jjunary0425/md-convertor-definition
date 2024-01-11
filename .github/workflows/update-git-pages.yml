@@ -75,5 +75,5 @@ jobs:
           destination_branch: main
           destination_file: openapi.json
           commit_message: ${{ steps.commit_message.outputs.description }}
-          commit_author: rimapa
-          commit_email: "jjunary0425@gmail.com"
+          user_email: 'jjunary0425@gmail.com'
+          user_name: 'rimapa'
