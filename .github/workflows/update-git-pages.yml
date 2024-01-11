@@ -63,13 +63,7 @@ jobs:
           HEAD_COMMIT: "${{ github.event.repository.html_url }}/commit/${{ github.event.after || github.sha }}"
         id: commit_message
         run: |
-          DESCRIPTION=$(cat << EOF
-          update openapi.json
-          
-          created from ${{ env.RUN_URL }}
-          latest commit: ${{ env.HEAD_COMMIT }}
-          )
-          DESCRIPTION="${DESCRIPTION//$'\n'/'%0A'}"
+          DESCRIPTION="update openapi.json\ncreated from ${{ env.RUN_URL }} \nlatest commit: ${{ env.HEAD_COMMIT }}"
           echo "::set-output name=content::$DESCRIPTION"
       - name: copy openpai_json
         uses: dmnemec/copy_file_to_another_repo_action@main
