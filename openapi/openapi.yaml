@@ -8,7 +8,7 @@ servers:
     description: markdown convertor Service
 tags:
   - name: kanji
-    description: Making Study File for Kanji
+    description: Making Kanji Study Markdown File 
 paths:
   /kanji:
     $ref: "./paths/kanji.yaml#/kanji"
