@@ -66,8 +66,8 @@ jobs:
           DESCRIPTION=$(cat << EOF
           update openapi.json
           
-          created from $RUN_URL
-          latest commit $HEAD_COMMIT
+          created from ${{ RUN_URL }}
+          latest commit ${{ HEAD_COMMIT }}
           )
 
           DESCRIPTION="${DESCRIPTION//$'\n'/'%0A'}"
