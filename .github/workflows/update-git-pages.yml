@@ -20,15 +20,13 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v3
-
       # node install
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 18
           
-      - name: install cli
+      - name: install redoc-cli
         run: npm install -g redoc-cli
       
       - name: make docs folder
@@ -42,3 +40,47 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
+      
+      - name: install swagger-cli
+        run: npm install -g @apidevtools/swagger-cli
+
+      - name: make ouput folder
+        run: mkdir output
+
+      - name: bundle
+        run: swagger-cli bundle -o output/openapi.output.json openapi/openapi.yaml
+
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v2
+        with:
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: setup commit message
+        env: 
+          RUN_URL: "${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}"
+          HEAD_COMMIT: "${{ github.event.repository.html_url }}/commit/${{ github.event.after || github.sha }}"
+        id: commit_message
+        run: |
+          DESCRIPTION=$(cat <<EOF
+          update openapi.json
+          
+          created from $RUN_URL
+          latest commit $HEAD_COMMIT
+          )
+
+          DESCRIPTION="${DESCRIPTION//$'\n'/'%0A'}"
+          echo "::set-output name=description::$DESCRIPTION"
+      - name: copy openpai_json
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN: ${{ steps.generate_token.outputs.token }}
+        with:
+          source_file: output/openapi.output.json
+          destination_repo: jjunary0425/md-converter-openapi-gen
+          destination_branch: main
+          destination_file: openapi.json
+          commit_message: ${{ steps.commit_message.outputs.description }}
+          commit_author: rimapa
+          commit_email: "jjunary0425@gmail.com"
