@@ -71,7 +71,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ steps.generate_token.outputs.token }}
         with:
-          source_file: output/openapi.output.json
+          source_file: output/openapi.json
           destination_repo: jjunary0425/md-converter-openapi-gen
           destination_branch: main
           destination_folder: 'output'
