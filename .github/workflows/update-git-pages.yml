@@ -61,6 +61,7 @@ jobs:
         env: 
           RUN_URL: "${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}"
           HEAD_COMMIT: "${{ github.event.repository.html_url }}/commit/${{ github.event.after || github.sha }}"
+          GITHUB_OUTPUT: ""
         id: commit_message
         run: |
           DESCRIPTION=$(cat << EOF
