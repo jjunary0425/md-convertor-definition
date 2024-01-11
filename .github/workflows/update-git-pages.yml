@@ -63,7 +63,7 @@ jobs:
           HEAD_COMMIT: "${{ github.event.repository.html_url }}/commit/${{ github.event.after || github.sha }}"
         id: commit_message
         run: |
-          DESCRIPTION=$(cat <<EOF
+          DESCRIPTION=$(cat << EOF
           update openapi.json
           
           created from $RUN_URL
