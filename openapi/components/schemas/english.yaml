@@ -1,0 +1,6 @@
+type: object
+properties:
+  word:
+    type: string
+  example:
+    type: string

@@ -1,0 +1,6 @@
+type: object
+properties:
+  words:
+    type: array
+    items:
+      $ref: '../schemas/english.yaml'

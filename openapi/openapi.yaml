@@ -12,6 +12,8 @@ tags:
 paths:
   /kanji:
     $ref: "./paths/kanji.yaml#/kanji"
+  /english:
+    $ref: "./paths/english.yaml#/english"
 components:
   schemas:
     kanji:
@@ -20,4 +22,8 @@ components:
       $ref: "./components/schemas/kanjiSummary.yaml"
     usage:
       $ref: "./components/schemas/usage.yaml"
+    english:
+      $ref: "./components/schemas/english.yaml"
+    englishSummary:
+      $ref: "./components/schemas/englishSummary.yaml"
     

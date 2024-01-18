@@ -1,0 +1,19 @@
+english :
+  post :
+    summary :  "Create a new english markdown"
+    operationId :  "postEnglishMarkdown"
+    requestBody :
+      description: Optional description in *Markdown*
+      required: true
+      content:
+        application/json:
+          schema:
+           $ref: '../components/schemas/englishSummary.yaml'
+    responses :
+      '200' :
+        description :  "OK"
+        content :
+          text/plain :
+            schema :
+              type :  string            
+    
